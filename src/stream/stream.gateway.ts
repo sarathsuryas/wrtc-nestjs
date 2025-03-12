@@ -2,7 +2,7 @@ import { ConnectedSocket, MessageBody, OnGatewayConnection, OnGatewayDisconnect,
 import { Server, Socket } from "socket.io";
 import * as webrtc from 'wrtc';
 
-@WebSocketGateway({ cors: true })
+@WebSocketGateway({ origin:'*' })
 export class StreamGateway  implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect{
    viewers = new Map(); // Map to store viewer connections
  broadcasterStream = null; // Store the broadcaster's MediaStream
