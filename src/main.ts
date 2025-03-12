@@ -4,9 +4,9 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: 'https://wrtc-angular.vercel.app', // Allow requests from any origin
+    origin: 'http://localhost:4200', // Allow requests from any origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
-  });
+  });  
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
