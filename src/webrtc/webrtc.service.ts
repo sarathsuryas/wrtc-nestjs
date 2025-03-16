@@ -14,7 +14,7 @@ export class WebrtcService {
     initializeSocket(server: any) {
         this.io = new Server(server, {
             cors: {
-              origin: '*', // Configure as needed for your environment
+              origin: 'http://localhost:4200', // Configure as needed for your environment
               methods: ['GET', 'POST'],
             },
           });
