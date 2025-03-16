@@ -37,10 +37,12 @@ broadCasterConnect(client: ISocket, data: any) {
   client.broadcast.emit('broadcaster_connected')
 }
 @SubscribeMessage('broadcaster_offer')
-async BroadCasterOffer(client:any,description:any) {
+async BroadCasterOffer(client:ISocket,description:any) {
   if (client.id !== this.broadcaster) return;
   try {
-
+    if (client.peerConnection) {
+      client.peerConnection.close();
+    }
 
     const peerConnection = new wrtc.RTCPeerConnection({
       iceServers: [
