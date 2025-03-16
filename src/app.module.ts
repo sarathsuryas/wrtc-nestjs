@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { StreamGateway } from './stream/stream.gateway';
+import { WebrtcGateway } from './stream/stream.gateway';
+import { WebrtcService } from './stream/stream.service';
 
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService, StreamGateway],
+  providers: [AppService, WebrtcGateway,WebrtcService],
 })
 export class AppModule {}
