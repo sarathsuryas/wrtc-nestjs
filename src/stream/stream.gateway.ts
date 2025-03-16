@@ -1,8 +1,14 @@
-import { ConnectedSocket, OnGatewayConnection, OnGatewayDisconnect, SubscribeMessage, WebSocketServer } from "@nestjs/websockets";
+import { ConnectedSocket, OnGatewayConnection, OnGatewayDisconnect, SubscribeMessage, WebSocketGateway, WebSocketServer } from "@nestjs/websockets";
 import * as wrtc from'wrtc'
 import { Server } from "socket.io";
 import { WebrtcService } from "./stream.service";
-
+@WebSocketGateway({
+  cors: {
+    origin: ['http://localhost:3000', 'https://wrtc-angular.vercel.app'], // Allowed origins
+    methods: ['GET', 'POST'], // Allowed methods
+    credentials: true, // Include cookies and credentials
+  },
+})
 export class WebrtcGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server:Server;
