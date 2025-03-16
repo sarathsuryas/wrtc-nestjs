@@ -71,7 +71,7 @@ export class WebrtcGateway implements OnGatewayInit, OnGatewayConnection, OnGate
 
 @SubscribeMessage('broadcaster_offer')
 async broadcasterOffer(@ConnectedSocket() client: Socket,
-  @MessageBody() description: RTCSessionDescription) {
+  @MessageBody() description: any) {
     if (client.id !== this.broadcaster) return;
     try {
       // Close any existing peer connection for the client
