@@ -7,6 +7,6 @@ import { WebrtcService } from './webrtc/webrtc.service';
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService, WebrtcService],
+  providers: [AppService, WebrtcGateway],
 })
 export class AppModule {}
