@@ -7,7 +7,7 @@ async function bootstrap() {
   //  const socketService = app.get(WebrtcService);
 
   app.enableCors({
-    origin:[ 'http://localhost:4200','https://wrtc-angular.vercel.app'], // Allow requests from any origin
+    origin:'https://wrtc-angular.vercel.app', // Allow requests from any origin
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed HTTP methods
   });  
   const server = await app.listen(process.env.PORT ?? 3000);
